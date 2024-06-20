@@ -1,0 +1,267 @@
+body{
+    background-color:#F6F6F6
+}
+.containerGrid{
+    background-color:#F6F6F6;
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    z-index: 1 ;
+}
+.headerGrid{
+    background-color: white;
+    margin: -6px;
+    margin-right: -10px;
+    padding-top: 10px;
+    z-index: 2;
+    display:grid;
+    width: 100%;
+    height: 50px;  
+    grid-template-columns: repeat(1fr 1fr 1fr); 
+    grid-template-rows: 1fr;
+    box-shadow: 0px 3px 3px grey;
+}
+.logo{
+    background-color: white;
+    position: absolute;
+    left: 60px;
+    box-shadow: 0px 3px 0px lightslategray;
+    
+}
+.searchBar{
+    background-color: rgb(255, 255, 255);
+    border-width: 0.5px;
+    justify-self: center;
+    width: 431px;
+    height: 45px;
+    position: absolute;
+    left: 750px;
+    border: solid black;
+    border-radius: 20px;
+    margin-top: -5px;
+}
+
+
+.button1{
+    display: inline;
+    color:#FFDE00;
+    text-align: center;
+    background-color: #002D62;
+    width:70px;
+    height: 43px; 
+    padding-left: 0px;
+    padding-top: 2px;
+    line-height: 40px;
+    border-radius: 18px;
+    float: inline-start;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:14px;
+
+}
+.button2{
+    background-color: #FFDE00;
+    display: inline;
+    padding-left:15px;
+    padding-top: 5px;
+    width: 50px;
+    border-radius: 18px;
+    float:inline-end;
+    height: 40px;
+}   
+
+
+.navigationTools{
+    background-color: rgb(255, 255, 255);
+    padding-top: 4px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    justify-self: end;
+    position: absolute;
+}
+.navigationTools1{
+    display: inline;
+}
+.navigationTools2{
+    display: inline;
+    margin-right: 10px;
+}
+
+
+
+
+.bodyGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+    height: 100vh;
+    background-color:#F6F6F6;
+    z-index: 1;
+}
+.mainIntroduction{
+    z-index: 1;
+    width: 1470px;
+    height: 400px;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.text{
+    display: inline;
+    margin-top: 150px;
+    color: #002D62;
+    font-family: futura;
+    font-size: 26px;
+    width: 456px;
+    height: 142px;
+    justify-self: center;
+}
+.shirts{
+    display: inline;
+    color: #002D62;
+    margin-top: 70px;
+    width: 850px;
+    height: 300px;
+    margin-left: 0px;
+    
+}
+.textAndImage{
+    
+    font-weight: 700;
+    width: 600px;
+    font-family: futura;
+    font-size: 24px;
+    text-align: right;
+    padding: 20px;
+    position: absolute;
+    left: 850px;
+
+}
+.heading{
+    grid-column: 1/4;
+    height: 75px;
+}
+.giftOne{
+    border: solid #002D62;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    justify-self: center;
+    margin-top: -30px;
+    box-shadow: 7px 7px 3px lightgray;
+}
+.image{
+    width: 435px;
+    height: 371px;
+    border-radius: 20px 20px 0px 0px ;
+}
+.textForImage{
+    background-color: #F6F6F6;
+    border-radius: 0px 0px 20px 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: futura;
+
+}
+.giftTwo{
+    border: solid #002D62;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    justify-self: center;
+    margin-top: -30px;
+    box-shadow: 7px 7px 3px lightgray;
+}
+.newForGiftTwo{
+    background-color: #FFDE00;
+    position: absolute;
+    top: 655px;
+    width: 70px;
+    height: 35px;
+    border-radius: 0px 20px 20px 0px;
+    padding-top: 0px ;
+    padding-left: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 0px;
+    
+}
+.giftThree{
+    border: solid #002D62;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    justify-self: center;
+    margin-top: -30px;
+    box-shadow: 7px 7px 3px lightgray;
+}
+.noStockForGiftThree{
+    background-color: #F6F6F6;
+    position: absolute;
+    top: 655px;
+    width: 100px;
+    border-radius: 0px 20px 20px 0px;
+    padding-left: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 0px;
+}
+.latestOne{
+    border: solid #002D62;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    justify-self: center;
+    margin-top: -30px;
+    box-shadow: 7px 7px 3px lightgray;
+}
+.image{
+    width: 435px;
+    height: 371px;
+    border-radius: 20px 20px 0px 0px ;
+}
+.textForImage{
+    background-color: #F6F6F6;
+    border-radius: 0px 0px 20px 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: futura;
+
+}
+.latestTwo{
+    border: solid #002D62;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    justify-self: center;
+    margin-top: -30px;
+    box-shadow: 7px 7px 3px lightgray;
+}
+.latestThree{
+    border: solid #002D62;
+    border-width: 1px;
+    border-radius: 20px 20px 20px 20px;
+    justify-self: center;
+    margin-top: -30px;
+    box-shadow: 7px 7px 3px lightgray;
+}
+.dropDown{
+    z-index: 4 ;
+    background-color: white;   
+    width: 200px;
+    height: 250px;
+    line-height: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    padding-left: 20px;
+    border-radius: 20px 0px 20px 20px;
+    position: absolute;
+    left: 705px;
+    top: 57px;
+    box-shadow: 1px 3px 1px lightgray, -1px -1px 1px lightgray;
+}
