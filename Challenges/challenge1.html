@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challenge 1</title>
+</head>
+<body>
+    <script>
+        const input = [10, 20, 30, 40, 50];
+        const position = 3;
+        //sconst output = [];
+        console.log(input);
+        // if ( position == 0 ) console.log(`Enter a valid position.`);
+        // for (i=0; i < input.length; i++ ){
+        //     if( i == position-1 && i !== input.length - 2 ){
+        //         output.push(input[position]);
+        //         //console.log('1working');
+        //         continue;
+        //     }
+        //     else if( i== position && i !== input.length - 1){
+        //         output.push(input[position - 1]);
+        //         //console.log('2working');
+        //         continue;
+        //     }
+        //     else if(  i== position && position == input.length-1){
+        //         output.push(input[0]);
+        //         output[0] = input[input.length-1];
+        //         //console.log('3working');
+        //         continue;
+        //     }
+        //     output.push(input[i]);
+        // }
+        
+        for (i=0; i < input.length; i++ ){
+            
+            if( position == 0) {console.log(`Enter a valid position.`); break;}
+            else if( i == position && i !== input.length){
+                var1 = input[i];
+                input[i] = input[i-1]; 
+                input[i-1] = var1; 
+            }
+            else if( i == position && i == input.length) {
+                var1 = input[0];//10
+                input[0] = input[i]; 
+                input[i] = var1; 
+            }
+        }
+        console.log(input);
+
+    </script>
+</body>
+</html>
