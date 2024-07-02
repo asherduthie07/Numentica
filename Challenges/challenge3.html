@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Challenge 3</title>
+</head>
+
+<body>
+    <script>
+        let time1 = "8:00 PM";
+        let time2 = "1:00 AM";
+        let number1 = time1.split(" ");
+        let number2 = time2.split(" ");
+        let hourMin1 = number1[0].split(":");
+        let hourMin2 = number2[0].split(":");
+        // console.log(number1[0]);
+        // console.log(number2[0]);    
+        // console.log(hourMin1[0]);
+        // console.log(hourMin2[0]);
+        if (hourMin1[0] <= 12 && hourMin2[0] <= 12 && hourMin1[1] <= 60 && hourMin2[1] <= 60) {
+            if (number1[1] == number2[1]) {
+                let hour = hourMin2[0] - hourMin1[0];
+                let mins = hourMin2[1] - hourMin1[1];
+                // console.log (typeof hourMin1[0]);
+                // console.log(typeof hourMin2[0]);
+                if (hour > 0) {
+                    if (mins < 0) {
+                        console.log(`${Math.abs(hour - 1)} Hours and ${Math.abs(mins + 60)} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins)} Minutes`);
+                    }
+                    else {
+                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                    }
+
+                }
+                else if (hour < 0) {
+                    if (mins < 0) {
+                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins + 60)} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${Math.abs(hour + 1)} Hours and ${Math.abs(mins)} Minutes`);
+                    }
+                    else {
+                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                    }
+                }
+                else {
+                    console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                }
+
+            }
+            else if (number1[1] !== number2[1]) {
+                let hour = hourMin2[0] - hourMin1[0] + 12;
+                let mins = hourMin2[1] - hourMin1[1];
+                // console.log (typeof hourMin1[0]);
+                // console.log(typeof hourMin2[0]);
+                if (hour > 0) {
+                    if (mins < 0) {
+                        console.log(`${Math.abs(hour - 1)} Hours and ${Math.abs(mins + 60)} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins)} Minutes`);
+                    }
+                    else {
+                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                    }
+
+                }
+                else if (hour < 0) {
+                    if (mins < 0) {
+                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins + 60)} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins)} Minutes`);
+                    }
+                    else {
+                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                    }
+                }
+                else {
+                    console.log(`something went wrong`)
+                }
+            }
+            else console.log(`Check if the given input is correct.`);
+        }
+        else {
+            console.log(`Enter Correct Values.`)
+        }
+
+    </script>
+</body>
+
+</html>
