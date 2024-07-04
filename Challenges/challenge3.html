@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Challenge 3</title>
@@ -7,87 +7,178 @@
 
 <body>
     <script>
-        let time1 = "9:00 PM";
-        let time2 = "10:00 PM";
-        let number1 = time1.split(" ");
-        let number2 = time2.split(" ");
-        let hourAndMin1 = number1[0].split(":");
-        let hourAndMin2 = number2[0].split(":");
-        // console.log(number1[0]);
-        // console.log(number2[0]);    
-        // console.log(hourAndMin1[0]);
-        // console.log(hourAndMin2[0]);
-        if (hourAndMin1[0] <= 12 && hourAndMin2[0] <= 12 && hourAndMin1[1] <= 60 && hourAndMin2[1] <= 60) {
-            if (number1[1] == number2[1]) {
-                let hour = hourAndMin2[0] - hourAndMin1[0];
-                let mins = hourAndMin2[1] - hourAndMin1[1];
-                // console.log (typeof hourAndMin1[0]);
-                // console.log(typeof hourAndMin2[0]);
-                if (hour > 0) {
-                    if (mins < 0) {
-                        console.log(`${Math.abs(hour - 1)} Hours and ${Math.abs(mins + 60)} Minutes`);
-                    }
-                    else if (mins > 0) {
-                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins)} Minutes`);
-                    }
-                    else {
-                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
-                    }
+        let fromTime = "12:00 AM";
+        let toTime =   "2:00 AM";
+        console.log(`${fromTime} to ${toTime}`)
+        let fromTimeSplit = fromTime.split(" ");
+        let toTimeSplit = toTime.split(" ");
+        let hourAndMinute1 = fromTimeSplit[0].split(":");
+        let hourAndMinute2 = toTimeSplit[0].split(":");
 
+        let fromTimeHour = Number(hourAndMinute1[0]);
+        let fromTimeMinute = Number(hourAndMinute1[1]);
+        let toTimeHour = Number(hourAndMinute2[0]);
+        let toTimeMinute = Number(hourAndMinute2[1]);
+        let hour = fromTimeHour - toTimeHour;
+        let mins = fromTimeMinute - toTimeMinute;
+
+        if (fromTimeHour <= 12 && toTimeHour <= 12 && fromTimeMinute <= 60 && toTimeMinute <= 60 && hourAndMinute1[0] > 0 && hourAndMinute2[0] > 0) {
+
+            const calcSame = function (firstTime, secondTime) {
+
+                let hours = 0;
+                if (firstTime == 12) {
+                    return hours = secondTime;
                 }
-                else if (hour < 0) {
-                    if (mins < 0) {
-                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins + 60)} Minutes`);
-                    }
-                    else if (mins > 0) {
-                        console.log(`${Math.abs(hour + 1)} Hours and ${Math.abs(mins)} Minutes`);
-                    }
-                    else {
-                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
-                    }
+                else if (secondTime == 12) {
+                    return hours = 12 + (secondTime - firstTime);
+                }
+                else if (firstTime > secondTime) {
+                    let a = 12 - firstTime;
+                    return hours = 12 + a + secondTime;
+                }
+                else if (firstTime < secondTime) {
+                    return hours = (secondTime - firstTime);
+                }
+                else if (firstTime == secondTime) {
+                    return hours = 24;
                 }
                 else {
-                    console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                    console.log('something went wrong 1');
+                }
+            }
+            const calcDifferent = function (firstTime, secondTime) {
+
+                let hours = 0;
+
+                if (firstTime == 12) {
+                    return hours = 12 + secondTime;
+                }
+                else if (secondTime == 12) {
+                    return hours = (secondTime - firstTime);
+                }
+                else if (firstTime > secondTime) {
+                    return hours = 12 - (firstTime - secondTime);
+                }
+                else if (firstTime < secondTime) {
+
+                    return hours = 12 - (secondTime - firstTime);
+                }
+                else if (firstTime == secondTime) {
+                    return hours = 12;
+                }
+                else {
+                    console.log('something went wrong 2');
+                }
+            }
+            const calcMinutes = function (firstMinute, secondMinute) {
+                if (mins < 0)// first time input is smaller 
+                {
+                    return minutes = Math.abs(mins );
+                }
+                else if (mins > 0) {
+                    return minutes = Math.abs(mins - 60);
+                }
+                else {
+                    return minutes = 0;
                 }
 
             }
-            else if (number1[1] !== number2[1]) {
-                let hour = hourAndMin2[0] - hourAndMin1[0] + 12;
-                let mins = hourAndMin2[1] - hourAndMin1[1];
-                // console.log (typeof hourAndMin1[0]);
-                // console.log(typeof hourAndMin2[0]);
-                if (hour > 0) {
-                    if (mins < 0) {
-                        console.log(`${Math.abs(hour - 1)} Hours and ${Math.abs(mins + 60)} Minutes`);
-                    }
-                    else if (mins > 0) {
-                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins)} Minutes`);
-                    }
-                    else {
-                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
-                    }
 
-                }
-                else if (hour < 0) {
+            if (fromTimeSplit[1] == toTimeSplit[1]) {
+                let finalHour = calcSame(fromTimeHour, toTimeHour);
+                let finalMinute = calcMinutes(fromTimeMinute, toTimeHour);
+
+                if (hour < 0) {
                     if (mins < 0) {
-                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins + 60)} Minutes`);
+                        console.log(`${finalHour } Hours and ${Math.abs(finalMinute )} Minutes`);
                     }
                     else if (mins > 0) {
-                        console.log(`${Math.abs(hour)} Hours and ${Math.abs(mins)} Minutes`);
+                        console.log(`${finalHour -1 } Hours and ${Math.abs(finalMinute )} Minutes`);
                     }
                     else {
-                        console.log(`${Math.abs(hour)} Hours and 0 Minutes`);
+                        console.log(`${finalHour} Hours and 0 Minutes`);
+                    }
+                }
+                else if (hour > 0) {
+                    if (mins < 0) {
+                        console.log(`${finalHour} Hours and ${finalMinute} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${finalHour - 1} Hours and ${finalMinute} Minutes`);
+                    }
+                    else {
+                        console.log(`${finalHour} Hours and 0 Minutes`);
+                    }
+                }
+                else if (hour == 0 && fromTimeMinute !== toTimeMinute) {
+                    if( fromTimeMinute > toTimeMinute){
+                        console.log(`23 hours and ${60 - finalMinute} Minutes`);
+                    }
+                    else if ( toTimeMinute > fromTimeMinute){
+                        console.log(`0 hours and ${ finalMinute} Minutes`);
+                    }
+                    else if( fromTimeMinute == toTimeMinute){
+                        console.log(`24 hours and 0 Minutes`);
+                    }
+                    else{
+                        console.log(`Something went wrong`)
+                    }
+                }
+                else if( hour == 0){
+                    console.log(`0 Hours and ${finalMinute} Minutes`);
+                }
+                else {
+                    console.log('something went wrong')
+                }
+
+            }
+            else if (fromTimeSplit[1] !== toTimeSplit[1]) {
+                let finalHour = calcDifferent(fromTimeHour, toTimeHour);
+                let finalMinute = calcMinutes(fromTimeMinute, toTimeHour);
+                if (hour < 0) {
+                    if (mins < 0) {
+                        console.log(`${12 - (fromTimeHour - toTimeHour)} Hours and ${finalMinute} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${12 - (fromTimeHour - toTimeHour) -1} Hours and ${finalMinute} Minutes`);
+                    }
+                    else {
+                        console.log(`${12 - (fromTimeHour - toTimeHour)} Hours and 0 Minutes`);
+                    }
+                }
+                else if (hour > 0) {
+                    if (mins < 0) {
+                        console.log(`${finalHour} Hours and ${finalMinute} Minutes`);
+                    }
+                    else if (mins > 0) {
+                        console.log(`${finalHour -1} Hours and ${finalMinute} Minutes`);
+                    }
+                    else {
+                        console.log(`${finalHour} Hours and 0 Minutes`);
                     }
                 }
                 else {
-                    console.log(`something went wrong`)
+                    if( hour == 0 && fromTimeMinute > toTimeMinute){
+                    console.log(` 11 Hours and ${finalMinute} Minutes`);
+                    }
+                    else if( hour == 0 && fromTimeMinute < toTimeMinute ){
+                        console.log(` 12 Hours and ${finalMinute} Minutes`);
+                    }
+                    else if (hour == 0 && fromTimeMinute == toTimeMinute  ){
+                        console.log(` 12 Hours and ${finalMinute} Minutes`);
+                    }
                 }
+
             }
-            else console.log(`Check if the given input is correct.`);
+            else {
+                console.log(`Some thing went wrong 3`);
+            }
         }
         else {
-            console.log(`Enter Correct Values.`)
+            console.log(`Enter Correct values `)
         }
+
 
     </script>
 </body>
