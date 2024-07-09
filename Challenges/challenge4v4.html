@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Challenge 4 v3</title>
+</head>
+
+<body>
+    <script>
+        const vehicles = [
+            { type: 'cycle', weightCapacity: 1 },
+            { type: 'bike', weightCapacity: 5 },
+            { type: 'auto', weightCapacity: 20 },
+            { type: 'ace', weightCapacity: 50 },
+            { type: 'tempo', weightCapacity: 100 }
+        ];
+
+        const parcels = [
+            { location: 'velachery', weight: 30 },
+            { location: 'madipakkam', weight: 17 },
+            { location: 'sholinganallur', weight: 240 }
+        ];
+        const weightCapacityarr = [
+            vehicles[0].weightCapacity,
+            vehicles[1].weightCapacity,
+            vehicles[2].weightCapacity,
+            vehicles[3].weightCapacity,
+            vehicles[4].weightCapacity
+        ];
+        const parcelWeightArr = [
+            parcels[0].weight,
+            parcels[1].weight,
+            parcels[2].weight
+        ];
+        // console.log(weightCapacityarr);
+        // console.log(parcelWeightArr)
+
+       
+        let difference = 0;             
+        for (let p = 0; p < parcelWeightArr.length; p++) {
+            let number = 0; tempoCounter = 0; aceCounter = 0; bikeCounter = 0; autoCounter = 0; cycleCounter = 0;
+            let difference = parcelWeightArr[p];
+            for (let i = weightCapacityarr.length - 1; i >= 0; i--) {
+                while (difference >= weightCapacityarr[i]) {
+                    difference = difference - weightCapacityarr[i];
+                    number += 1;
+                     if( weightCapacityarr[i] == 100){
+                        tempoCounter += 1;
+                    }
+                    else if (weightCapacityarr[i] == 50){
+                        aceCounter += 1;
+                    }
+                    else if (weightCapacityarr[i] == 20){
+                        bikeCounter +=1;
+                    }
+                    else if (weightCapacityarr[i] == 5){
+                        autoCounter += 1;
+                    }
+                    else if (weightCapacityarr[i] == 1){
+                        cycleCounter += 1;
+                    }
+                    else{
+                        console.log('error');
+                    }
+
+                }
+            }
+            console.log(`${parcelWeightArr[p]} need a minimum of ${number} vehicles with ${tempoCounter} tempos, ${aceCounter} aces, ${bikeCounter} bikes, ${autoCounter} autos, ${cycleCounter} cycles. ` );
+            number =0; tempoCounter = 0; aceCounter = 0; bikeCounter = 0; autoCounter = 0; cycleCounter = 0;
+        }
+    </script>
+</body>
+
+</html>
