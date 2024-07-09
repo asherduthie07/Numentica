@@ -7,67 +7,67 @@
 
 <body>
     <script>
-        const vehicles = [
+        let program = function(){
+        let vehicles = [
             { type: 'cycle', weightCapacity: 1 },
-            { type: 'bike', weightCapacity: 5 },
-            { type: 'auto', weightCapacity: 20 },
-            { type: 'ace', weightCapacity: 50 },
-            { type: 'tempo', weightCapacity: 100 }
+            { type: 'bike', weightCapacity: 50 },
+            { type: 'auto', weightCapacity: 20.1 },
+            { type: 'ace', weightCapacity: 5 },
+            { type: 'tempo', weightCapacity: 100 },
+            { type: 'cargo', weightCapacity: 2 }
         ];
+        for ( i=0; i< vehicles.length; i++){
+            if( vehicles[i].weightCapacity < 0 ){
+                return console.log('Enter values greater than 0')
+            }
+        }
 
         const parcels = [
-            { location: 'velachery', weight: 30 },
+            { location: 'velachery', weight: 1.99999 },
             { location: 'madipakkam', weight: 17 },
-            { location: 'sholinganallur', weight: 240 }
+            { location: 'sholinganallur', weight: 1000 },
+            { location: 'sholinganallur', weight: 10 }
         ];
-        const weightCapacityarr = [
-            vehicles[0].weightCapacity,
-            vehicles[1].weightCapacity,
-            vehicles[2].weightCapacity,
-            vehicles[3].weightCapacity,
-            vehicles[4].weightCapacity
-        ];
-        const parcelWeightArr = [
-            parcels[0].weight,
-            parcels[1].weight,
-            parcels[2].weight
-        ];
-        // console.log(weightCapacityarr);
-        // console.log(parcelWeightArr)
-
-       
-        let difference = 0;             
-        for (let p = 0; p < parcelWeightArr.length; p++) {
-            let number = 0; tempoCounter = 0; aceCounter = 0; bikeCounter = 0; autoCounter = 0; cycleCounter = 0;
-            let difference = parcelWeightArr[p];
-            for (let i = weightCapacityarr.length - 1; i >= 0; i--) {
-                while (difference >= weightCapacityarr[i]) {
-                    difference = difference - weightCapacityarr[i];
-                    number += 1;
-                     if( weightCapacityarr[i] == 100){
-                        tempoCounter += 1;
-                    }
-                    else if (weightCapacityarr[i] == 50){
-                        aceCounter += 1;
-                    }
-                    else if (weightCapacityarr[i] == 20){
-                        bikeCounter +=1;
-                    }
-                    else if (weightCapacityarr[i] == 5){
-                        autoCounter += 1;
-                    }
-                    else if (weightCapacityarr[i] == 1){
-                        cycleCounter += 1;
-                    }
-                    else{
-                        console.log('error');
-                    }
-
+        
+        //counter 
+        for (i = 0; i < vehicles.length; i++) {
+            vehicles[i].count = 0;
+        }
+        //sorter
+        for (x = 0; x < vehicles.length; x++) {
+            for (i = 0; i < vehicles.length; i++) {
+                while (i + 1 < vehicles.length && vehicles[i].weightCapacity > vehicles[i + 1].weightCapacity) {
+                    let temp = vehicles[i];
+                    vehicles[i] = vehicles[i + 1];
+                    vehicles[i + 1] = temp;
                 }
             }
-            console.log(`${parcelWeightArr[p]} need a minimum of ${number} vehicles with ${tempoCounter} tempos, ${aceCounter} aces, ${bikeCounter} bikes, ${autoCounter} autos and ${cycleCounter} cycles.` );
-            number =0; tempoCounter = 0; aceCounter = 0; bikeCounter = 0; autoCounter = 0; cycleCounter = 0;
         }
+        console.log(vehicles);
+
+        //-------------
+        let difference = 0;
+        for (let p = 0; p < parcels.length; p++) {
+            let number = 0;
+            let difference = parcels[p].weight;
+
+            for (let i = vehicles.length - 1; i >= 0; i--) {
+                while (difference >= vehicles[i].weightCapacity) {
+                    difference = difference - vehicles[i].weightCapacity;
+                    number += 1;
+                    vehicles[i].count += 1;
+                }
+            }
+            console.log(`${parcels[p].location}(${parcels[p].weight}) needs a minimum of ${number} vehicles with `);
+            for (let i = vehicles.length - 1; i >= 0; i--) {
+                if (vehicles[i].count !== 0) {
+                    console.log(`${vehicles[i].count} ${vehicles[i].type} `)
+                    vehicles[i].count = 0;
+                }
+            }
+        }
+    }
+    program();
     </script>
 </body>
 
