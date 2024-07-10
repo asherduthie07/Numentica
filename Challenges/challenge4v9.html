@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Challenge 4 v7</title>
+    <title>Challenge 4 v9</title>
 </head>
 
 <body>
@@ -10,32 +10,55 @@
         let program = function(){
         let vehicles = [
             { type: 'cycle', weightCapacity: 1 },
-            { type: 'bike', weightCapacity: 50 },
-            { type: 'auto', weightCapacity: 20.1 },
-            { type: 'ace', weightCapacity: 5 },
+            { type: 'bike', weightCapacity: 5 },
+            { type: 'auto', weightCapacity: 20 },
+            { type: 'ace', weightCapacity: 50 },
             { type: 'tempo', weightCapacity: 100 },
-            { type: 'cargo', weightCapacity: 2 }
+            { type: 'cargo', weightCapacity: 250 },
+            { type: 'aircargo', weightCapacity: 800 }
         ];
+        const parcels = [
+            { location: 'velachery', weight: 30 },
+            { location: 'madipakkam', weight: 17 },
+            { location: 'sholinganallur', weight: 200 },
+            { location: 'sholinganallur', weight: 800 },
+        ];
+        
+        //entering condition
         for ( i=0; i< vehicles.length; i++){
             if( vehicles[i].weightCapacity < 0 ){
-                return console.log('Enter values greater than 0')
+                return console.log('Enter values greater than 0');
+            }
+            else if (isNaN(vehicles[i].weightCapacity)){
+                return console.log('Enter a number');
+            }
+        }
+        for ( i=0; i< parcels.length; i++){
+            if( parcels[i].weight < 0 ){
+                return console.log('Enter values greater than 0');
+            }
+            else if (isNaN(parcels[i].weight)){
+                return console.log('Enter a number');
+            }
+        }
+        //same place checker
+
+        for (i=0; i< parcels.length; i++ ){
+            for(x=0; x< parcels.length; x++ ) { 
+                if(parcels[i].location == [parcels[x].location] && i != x){
+                    parcels[i].weight = parcels[i].weight + parcels[x].weight;
+                    parcels.pop(x);
+                }
             }
         }
 
-        const parcels = [
-            { location: 'velachery', weight: 1.99999 },
-            { location: 'madipakkam', weight: 17 },
-            { location: 'sholinganallur', weight: 1000 },
-            { location: 'sholinganallur', weight: 10 }
-        ];
-        
         //counter 
         for (i = 0; i < vehicles.length; i++) {
             vehicles[i].count = 0;
         }
         //sorter
-        for (x = 0; x < vehicles.length; x++) {
-            for (i = 0; i < vehicles.length; i++) {
+        for (x = 0; x < vehicles.length; x++) { //for targeting the entire arrays positon.
+            for (i = 0; i < vehicles.length; i++) {//for rotating through the entire array.
                 while (i + 1 < vehicles.length && vehicles[i].weightCapacity > vehicles[i + 1].weightCapacity) {
                     let temp = vehicles[i];
                     vehicles[i] = vehicles[i + 1];
